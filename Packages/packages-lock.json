@@ -161,6 +161,14 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.inputsystem": {
+      "version": "file:/Users/max/Downloads/InputSystem-develop/Packages/com.unity.inputsystem",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "com.unity.modules.uielements": "1.0.0"
+      }
+    },
     "com.unity.mathematics": {
       "version": "1.2.6",
       "depth": 2,
