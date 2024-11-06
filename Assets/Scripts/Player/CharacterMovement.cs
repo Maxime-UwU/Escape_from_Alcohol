@@ -14,6 +14,8 @@ public class CharacterMovement : MonoBehaviour
 
     private float _dirX = 0;
     private float _dirY = 0;
+    private float _rotation = 0;
+    private bool m_FacingRight;
 
     [SerializeField]
     private LayerMask m_GroundMask;
@@ -23,14 +25,18 @@ public class CharacterMovement : MonoBehaviour
         _rigidBody = GetComponent<Rigidbody2D>();
     }
 
-    public void MoveX(float dirX)
+    public void MoveX(float dirX, float rotation)
     {
         _dirX = dirX;
+        _rotation = rotation;
+        Flip();
     }
 
-    public void MoveY(float dirY)
+    public void MoveY(float dirY, float rotation)
     {
         _dirY = dirY;
+        _rotation = rotation;
+        Flip();
     }
 
     private void FixedUpdate()
@@ -38,14 +44,21 @@ public class CharacterMovement : MonoBehaviour
         if (Mathf.Abs(_dirX) > 0.01f || Mathf.Abs(_dirY) > 0.01f)
         {
             _rigidBody.velocity = new Vector2(_dirX * m_MoveSpeed, _dirY * m_MoveSpeed);
+            transform.rotation = Quaternion.Euler(0, 0, _rotation);
         }
         else
         {
             _rigidBody.velocity = new Vector2(_rigidBody.velocity.x * m_Deceleration, _rigidBody.velocity.y * m_Deceleration);
+            transform.rotation = Quaternion.Euler(0, 0, _rotation);
         }
     }
 
     private void Update()
+    {
+
+    }
+
+    private void Flip()
     {
 
     }
