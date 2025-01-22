@@ -21,6 +21,7 @@ public class ShootBeer : MonoBehaviour
 
     public void Shoot()
     {
+        Destroy(GameObject.FindGameObjectWithTag("beer"));
         Instantiate(bulletPrefab, shootingPoint.position, transform.rotation);
     }
 }
