@@ -54,7 +54,7 @@ public class Beer : MonoBehaviour
                 m_pathFinding.SetTransform(startTransform, targetTransform);
 
                 // Envoie l'ennemi directement à la position du projectile
-                enemy.GetComponent<Movement>().SetTarget(this.transform.position);
+                //enemy.GetComponent<Movement>().SetTarget(this.transform.position);
 
                 Destroy(gameObject);
             }
