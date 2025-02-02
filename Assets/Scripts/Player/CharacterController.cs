@@ -26,10 +26,9 @@ public class CharacterController : MonoBehaviour
         else if (Keyboard.current.dKey.isPressed)
         {
             dirX = 1;
-            rotation = -90;
+            rotation = 270;
         }
-
-        if(Keyboard.current.wKey.isPressed)
+        else if(Keyboard.current.wKey.isPressed)
         {
             dirY = 1;
             rotation = 0;
@@ -39,8 +38,7 @@ public class CharacterController : MonoBehaviour
             dirY = -1;
             rotation = 180;
         }
-
-        if (Keyboard.current.eKey.wasPressedThisFrame)
+        else if (Keyboard.current.eKey.wasPressedThisFrame)
         {
             m_Beer.Shoot();
         }
