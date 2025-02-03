@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class EnnemyView2 : MonoBehaviour
+public class EnnemyView4 : MonoBehaviour
 {
 
     [SerializeField]
-    private Movement2 m_movement2;
+    private Movement m_movement;
 
     public GameObject View;
     public GameObject Ennemy;
@@ -28,10 +28,9 @@ public class EnnemyView2 : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-
         if (collision.gameObject.CompareTag("Player"))
         {
-            m_movement2.ChangeSpeed(6f);
+            m_movement.ChangeSpeed(9f);
         }
     }
 
@@ -39,7 +38,7 @@ public class EnnemyView2 : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            m_movement2.ChangeSpeed(5f);
+            m_movement.ChangeSpeed(8f);
         }
     }
 }

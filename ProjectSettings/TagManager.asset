@@ -8,6 +8,7 @@ TagManager:
   - Sound
   - Wall
   - Ennemy
+  - View
   layers:
   - Default
   - TransparentFX

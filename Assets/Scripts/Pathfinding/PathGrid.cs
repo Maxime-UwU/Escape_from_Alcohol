@@ -13,7 +13,6 @@ public class PathGrid : MonoBehaviour
     {
         if (gridWidth <= 0 || gridHeight <= 0 || nodeSize <= 0)
         {
-            Debug.LogError("Invalid grid dimensions or node size.");
             return;
         }
         CreateGrid();

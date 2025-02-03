@@ -12,7 +12,7 @@ public class Movement2 : MonoBehaviour
     [SerializeField] public float secondUpLength;
     [SerializeField] public float thirdUpLength;
 
-    private bool goingForward = true; // Direction du mouvement
+    private bool goingForward = true;
     private Vector2 startPosition;
     private Vector2 targetPosition;
     private Vector2[] waypoints;
@@ -38,9 +38,8 @@ public class Movement2 : MonoBehaviour
 
         targetPosition = waypoints[1];
 
-        // Correction de l'orientation initiale vers la première cible
         Vector2 direction = targetPosition - (Vector2)transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90; // Ajuste selon ton sprite
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90;
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
@@ -53,11 +52,10 @@ public class Movement2 : MonoBehaviour
     {
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
 
-        // Calcul de la direction et mise à jour de la rotation
         Vector2 direction = targetPosition - (Vector2)transform.position;
         if (direction != Vector2.zero)
         {
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90; // Ajuste selon ton sprite
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90;
             transform.rotation = Quaternion.Euler(0, 0, angle);
         }
 
@@ -66,18 +64,18 @@ public class Movement2 : MonoBehaviour
             if (goingForward)
             {
                 currentWaypoint++;
-                if (currentWaypoint >= waypoints.Length) // Si on atteint la fin
+                if (currentWaypoint >= waypoints.Length)
                 {
-                    currentWaypoint = waypoints.Length - 2; // Reculer d'un cran
+                    currentWaypoint = waypoints.Length - 2;
                     goingForward = false;
                 }
             }
             else
             {
                 currentWaypoint--;
-                if (currentWaypoint < 0) // Si on atteint le début
+                if (currentWaypoint < 0)
                 {
-                    currentWaypoint = 1; // Avancer d'un cran
+                    currentWaypoint = 1;
                     goingForward = true;
                 }
             }
@@ -94,7 +92,7 @@ public class Movement2 : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && gameObject.CompareTag("Ennemy"))
         {
             string currentSceneName = SceneManager.GetActiveScene().name;
             SceneManager.LoadScene(currentSceneName);

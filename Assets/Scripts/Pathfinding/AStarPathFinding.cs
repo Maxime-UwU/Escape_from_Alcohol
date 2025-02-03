@@ -10,10 +10,6 @@ public class AStarPathfinding : MonoBehaviour
     private void Awake()
     {
         pathGrid = GetComponent<PathGrid>();
-        if (pathGrid == null)
-        {
-            Debug.LogError("PathGrid is not assigned to AStarPathfinding.");
-        }
     }
 
     private void Update()
@@ -31,7 +27,6 @@ public class AStarPathfinding : MonoBehaviour
 
         if (startNode == null || targetNode == null)
         {
-            Debug.LogError("Start or Target node is null. Ensure positions are within the grid bounds.");
             return null;
         }
 
@@ -76,7 +71,6 @@ public class AStarPathfinding : MonoBehaviour
             }
         }
 
-        Debug.LogWarning("No path found.");
         return null;
     }
 
@@ -94,7 +88,6 @@ public class AStarPathfinding : MonoBehaviour
 
         foreach (Node node in path)
         {
-            Debug.Log("Path Node: " + node.worldPosition);
         }
 
         return path;

@@ -21,7 +21,7 @@ public class DoorScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Camera.main.transform.position = new Vector3(-18.5f, Camera.main.transform.position.y, Camera.main.transform.position.z);
+            Camera.main.transform.position = new Vector3(-18.33f, Camera.main.transform.position.y, Camera.main.transform.position.z);
         }
     }
 }

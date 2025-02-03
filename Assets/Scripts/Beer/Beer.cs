@@ -46,15 +46,10 @@ public class Beer : MonoBehaviour
 
             if (enemy != null && startTransform != null && targetTransform != null)
             {
-                // Positionnement des transformations
                 startTransform.position = enemy.position;
                 targetTransform.position = transform.position;
 
-                // Configure le pathfinding
                 m_pathFinding.SetTransform(startTransform, targetTransform);
-
-                // Envoie l'ennemi directement à la position du projectile
-                //enemy.GetComponent<Movement>().SetTarget(this.transform.position);
 
                 Destroy(gameObject);
             }

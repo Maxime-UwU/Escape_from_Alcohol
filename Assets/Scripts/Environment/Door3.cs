@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Door2 : MonoBehaviour
+public class Door3 : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,8 @@ public class Door2 : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, 11.03f, Camera.main.transform.position.z);
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene(currentSceneName);
         }
     }
 }
